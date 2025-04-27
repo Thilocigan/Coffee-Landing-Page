@@ -1,0 +1,267 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root{
+    --coffee:#e9986a;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: poppins;
+}
+
+body{
+    background: linear-gradient(to left, #96521d, #86431a);
+    display: flex;
+    min-height: 100vh;
+}
+
+body::after{
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--coffee);
+    clip-path: circle(30% at right);
+    z-index: -1;
+
+}
+
+.container{
+    width: 80%;
+    min-height: 80%;
+    margin: auto;
+    padding: 1rem 0;
+    color: white;
+    background: rgba(255, 255, 255, 0.045);
+    border-radius: 1rem;
+    backdrop-filter: blur(10px);
+    box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.5);
+}
+
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    padding: 1rem 0;
+    margin: auto;
+    
+}
+
+#logo{
+    font-size: 40px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: white;
+    letter-spacing: 5px;
+    transition: all .2s ease-in;
+}
+
+#logo:hover{
+    letter-spacing: 12px;
+    color: var(--coffee);
+}
+
+nav ul{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style: none;
+    justify-content: end;
+    flex: 1;
+    gap: 7rem;
+}
+
+
+
+nav li a{
+    all: unset;
+    font-weight: 200;
+    font-size: 20px;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.516);
+    cursor: pointer;
+    transition: .3s ease-in;
+    position: relative;
+    
+}
+
+nav li a:hover{
+    color: var(--coffee);
+}
+
+nav li a::after{
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--coffee);
+    border-radius: 1rem;
+    transition: .2s ease-in;
+}
+
+nav li a:hover::after{
+    width: 100%;
+}
+
+.content{
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    width: 80%;
+    margin: auto;
+    align-items: center;
+    position: relative;
+    min-height: 60vh;
+}
+
+.content .text{
+    width: 50%;
+}
+
+.content .text h1{
+    font-size: 3vw;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    line-height: 110%;
+    margin-bottom: 1.5rem; 
+}
+
+.content .text p{
+    font-weight: 300;
+    font-size: 1vw;
+}
+
+.content button{
+    all: unset;
+    background: var(--coffee);
+    font-size: 1.2rem;
+    padding: 1rem 2rem;
+    margin-top: 1rem;
+    border-bottom-right-radius: 1rem;
+    cursor: pointer;
+    color: #222;
+    box-shadow: 5px 5px 5px #22222294;
+    position: relative;
+    z-index: 1;
+}
+
+.content button::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 0;
+    border-bottom-right-radius: 1rem;
+    background: #222;
+    z-index: -1;
+    transition: .2s ease;
+}
+
+.content button:hover{
+    color: white;
+}
+
+.content button:hover::after{
+    width: 100%;
+}
+
+.image img {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+}
+
+  @media (max-width: 1024px) {
+    .content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .content .text {
+        width: 100%;
+    }
+
+    .content img {
+        width: 80%;
+    }
+
+    .nav ul {
+        gap: 3rem;
+    }
+
+    .image {
+        position: relative;
+        right: auto;
+        top: auto;
+        transform: none;
+        display: flex;
+        justify-content: center;
+    }
+
+    .image img {
+        width: 80%; /* Reduce size for smaller screens */
+    }
+
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .container {
+        width: 95%;
+    }
+
+    .image img {
+        width: 60%;
+    }
+}
+
+@media (max-width: 480px) {
+    .content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .content .text h1 {
+        font-size: 6vw;
+    }
+
+    .content .text p {
+        font-size: 3vw;
+    }
+
+    .content button {
+        font-size: 18px;
+        padding: 0.8rem 1.5rem;
+    }
+
+    .image img {
+        width: 50%;
+    }
+
+    nav ul {
+        gap: 0.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .image {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    
+    .image img {
+        width: 100%;
+        max-width: 400px; /* Adjust image size for larger screens */
+        height: auto;
+    }
+}
